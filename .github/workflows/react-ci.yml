@@ -32,10 +32,19 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
 
       - name: Install dependencies
-        run: npm install CI
+        run: npm install
 
       - name: Run tests
-        run: nppm test --if-present
+        run: npm test --if-present
 
       - name: Build
         run: npm run build
+
+      - name: Install SonarQube Scanner
+        run: npm install -g sonarqube-scanner
+
+      - name: Run SonarQube Analysis
+        run: sonar-scanner
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_LOGIN: ${{ secrets.SONAR_TOKEN }}
