@@ -1,0 +1,17 @@
+# .NET
+bin/
+obj/
+*.userprefs
+*.suo
+*.cache
+
+# Node / React
+node_modules/
+dist/
+build/
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
